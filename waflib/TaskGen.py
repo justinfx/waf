@@ -94,7 +94,7 @@ class task_gen(object):
 		"""Debugging helper"""
 		lst = []
 		for x in self.__dict__:
-			if x not in ('env', 'bld', 'compiled_tasks', 'tasks'):
+			if x not in ('env', 'bld', 'compiled_tasks', 'tasks') and self.__dict__[x] is not self:
 				lst.append("%s=%s" % (x, repr(getattr(self, x))))
 		return "bld(%s) in %s" % (", ".join(lst), self.path.abspath())
 
